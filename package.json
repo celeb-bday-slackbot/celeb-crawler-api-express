@@ -1,9 +1,9 @@
 {
   "name": "celeb-crawler-express",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "export DEBUG=celeb-crawler-express:* && export PORT=8080 && node ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
