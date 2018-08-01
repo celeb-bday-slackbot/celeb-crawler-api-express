@@ -14,6 +14,7 @@ router.get('/', async (req, res, next) => {
       q: '오늘 생일인 연예인',
       datetime: getYMDString(new Date)
     });
+    
     res.send({
       status: 200,
       result
