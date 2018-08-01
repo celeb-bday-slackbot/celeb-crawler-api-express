@@ -1,3 +1,4 @@
+const debug = require('debug')('celeb-crawler-express:crawlPage');
 const puppeteer = require('puppeteer');
 
 async function crawlPage({q}) {
@@ -5,7 +6,7 @@ async function crawlPage({q}) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
   
-    page.on('console', msg => console.log('[CRALLER PAGE LOG] ', msg.text()));
+    page.on('console', msg => debug('[CRALLER PAGE LOG] ', msg.text()));
   
     await page.goto(`https://m.search.naver.com/search.naver?query=${encodeURIComponent(q)}`, {waitUntil: 'domcontentloaded'});
   
@@ -37,10 +38,11 @@ async function crawlPage({q}) {
     });
   
     await browser.close();
-  
+
     return profile;
 
   } catch (e) {
+    debug(e);
     return null;
   }
 }
